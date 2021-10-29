@@ -34,16 +34,19 @@ public class MinasEvent implements PluginMessageListener {
             String subChannel = in.readUTF();
             if (subChannel.equalsIgnoreCase("BidPlaceChannel")) {
                 String bidderName = in.readUTF();
+                String playerName = in.readUTF();
                 String amount = in.readUTF();
                 String item = in.readUTF();
-                player.sendMessage(lang_placeBidEvent.replaceAll("%bidder_name%", bidderName).replaceAll("%amount%", amount).replaceAll("%item%", item));
+
+                Player seller = Bukkit.getPlayer(playerName);
+                seller.sendMessage(lang_placeBidEvent.replaceAll("%bidder_name%", bidderName).replaceAll("%amount%", amount).replaceAll("%item%", item));
             } else if (subChannel.equalsIgnoreCase("PurchaseChannel")) {
                 String buyerName = in.readUTF();
-                String sellerUUID = in.readUTF();
+                String playerName = in.readUTF();
                 String amount = in.readUTF();
                 String item = in.readUTF();
-                Player seller = Bukkit.getPlayer(sellerUUID);
-                seller.sendMessage(lang_purchaseEvent.replaceAll("%buyer_name", buyerName).replaceAll("%item%", item).replaceAll("%amount%", amount));
+                Player seller = Bukkit.getPlayer(playerName);
+                seller.sendMessage(lang_purchaseEvent.replaceAll("%buyer_name%", buyerName).replaceAll("%item%", item).replaceAll("%amount%", amount));
             }
 
         }

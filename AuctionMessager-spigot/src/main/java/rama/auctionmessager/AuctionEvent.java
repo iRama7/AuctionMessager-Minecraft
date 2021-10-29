@@ -25,21 +25,16 @@ public class AuctionEvent implements Listener {
         boolean isVilla = config.getString("server").equalsIgnoreCase("villa");
         if (isVilla) {
             Player Bidder = e.getPlayer();
-            String SellerUUID = e.getAuction().getSellerUUID();
-            OfflinePlayer Seller = Bukkit.getOfflinePlayer(SellerUUID);
+            String SellerName = e.getAuction().getSellerName();
+            OfflinePlayer Seller = Bukkit.getOfflinePlayer(SellerName);
 
 
             String BidderName = Bidder.getDisplayName();
             String bidAmount = String.valueOf(e.getBidAmount());
-            String item = e.getAuction().getItemStack().getItemMeta().getDisplayName();
+            String item = e.getAuction().getItemStack().getType().name().replace("_", "").toLowerCase();
             String Channel = "BidPlaceChannel";
             if (!Seller.isOnline()) {
-                sendMessage(Channel, BidderName, SellerUUID, bidAmount, item);
-                plugin.getLogger().info("Enviando información al servidor de Minas: ");
-                plugin.getLogger().info("Channel: " + Channel);
-                plugin.getLogger().info("bidderName: " + BidderName);
-                plugin.getLogger().info("sellerUUID: " + SellerUUID);
-                plugin.getLogger().info("bidAmount: " + bidAmount);
+                sendMessage(Channel, BidderName, SellerName, bidAmount, item);
             }
         }
     }
@@ -49,21 +44,17 @@ public class AuctionEvent implements Listener {
         boolean isVilla = config.getString("server").equalsIgnoreCase("villa");
         if (isVilla) {
             Player Buyer = e.getPlayer();
-            String SellerUUID = e.getAuction().getSellerUUID();
-            OfflinePlayer Seller = Bukkit.getOfflinePlayer(SellerUUID);
+            String SellerName = e.getAuction().getSellerName();
+            OfflinePlayer Seller = Bukkit.getOfflinePlayer(SellerName);
 
             String buyerName = Buyer.getDisplayName();
             Double price = e.getPricePaid();
             String pricePaid = String.valueOf(price);
-            String item = e.getAuction().getItemStack().getItemMeta().getDisplayName();
+            String item = e.getAuction().getItemStack().getType().name().replace("_", "").toLowerCase();
+
             String channel = "PurchaseChannel";
             if (!Seller.isOnline()) {
-                sendMessage(channel, buyerName, SellerUUID, pricePaid, item);
-                plugin.getLogger().info("Enviando información al servidor de Minas: ");
-                plugin.getLogger().info("Channel: " + channel);
-                plugin.getLogger().info("buyerName: " + buyerName);
-                plugin.getLogger().info("sellerUUID: " + SellerUUID);
-                plugin.getLogger().info("pricePaid: " + pricePaid);
+                sendMessage(channel, buyerName, SellerName, pricePaid, item);
             }
         }
     }

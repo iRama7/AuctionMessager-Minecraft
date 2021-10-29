@@ -12,7 +12,6 @@ import org.bukkit.entity.Player;
 import java.util.Collection;
 import java.util.Map;
 
-import static rama.auctionmessager.AuctionMessagerBungeeCord.plugin;
 
 public class sendData {
     public static void sendData(String Channel, String data1, String data2, String data3, String data4){
@@ -36,6 +35,5 @@ public class sendData {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        plugin.getProxy().getLogger().warning("Debug 01");
     }
 }
