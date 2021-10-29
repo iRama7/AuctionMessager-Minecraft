@@ -1,0 +1,6 @@
+name: AuctionMessager
+version: '${project.version}'
+main: rama.auctionmessager.AuctionMessagerSpigot
+api-version: 1.17
+softdepend: [AuctionMaster]
+authors: [ ImRama ]

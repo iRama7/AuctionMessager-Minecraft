@@ -1,0 +1,3 @@
+name: AuctionMessager
+version: '${project.version}'
+main: rama.auctionmessager.AuctionMessagerBungeeCord
