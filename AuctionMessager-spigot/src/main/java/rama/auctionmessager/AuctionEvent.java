@@ -31,7 +31,7 @@ public class AuctionEvent implements Listener {
 
             String BidderName = Bidder.getDisplayName();
             String bidAmount = String.valueOf(e.getBidAmount());
-            String item = e.getAuction().getItemStack().getType().name().replace("_", "").toLowerCase();
+            String item = e.getAuction().getItemStack().getType().name().replace("_", " ").toLowerCase();
             String Channel = "BidPlaceChannel";
             if (!Seller.isOnline()) {
                 sendMessage(Channel, BidderName, SellerName, bidAmount, item);
@@ -50,7 +50,7 @@ public class AuctionEvent implements Listener {
             String buyerName = Buyer.getDisplayName();
             Double price = e.getPricePaid();
             String pricePaid = String.valueOf(price);
-            String item = e.getAuction().getItemStack().getType().name().replace("_", "").toLowerCase();
+            String item = e.getAuction().getItemStack().getType().name().replace("_", " ").toLowerCase();
 
             String channel = "PurchaseChannel";
             if (!Seller.isOnline()) {
