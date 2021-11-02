@@ -13,7 +13,7 @@ import org.bukkit.event.Listener;
 
 public class AuctionEvent implements Listener {
 
-    private AuctionMessagerSpigot plugin;
+    private final AuctionMessagerSpigot plugin;
 
     public AuctionEvent(AuctionMessagerSpigot plugin){
         this.plugin = plugin;

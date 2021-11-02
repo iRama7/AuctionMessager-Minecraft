@@ -11,7 +11,7 @@ import org.bukkit.plugin.messaging.PluginMessageListener;
 
 public class MinasEvent implements PluginMessageListener {
 
-    private AuctionMessagerSpigot plugin;
+    private final AuctionMessagerSpigot plugin;
 
     public MinasEvent(AuctionMessagerSpigot plugin){
         this.plugin = plugin;
