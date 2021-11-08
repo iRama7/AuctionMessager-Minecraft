@@ -6,7 +6,6 @@ import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 
 import java.io.ByteArrayInputStream;
-import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.IOException;
 
@@ -30,7 +29,12 @@ public class readData implements Listener {
                     String amount = in.readUTF();
                     String item = in.readUTF();
                     sendData.sendData(channel, buyerName, SellerName, amount, item);
-                    ProxyServer.getInstance().getLogger().warning("Debugging");
+                }else if(channel.equalsIgnoreCase("OutbidChannel")){
+                    String outBidderName = in.readUTF();
+                    String outBiddedName = in.readUTF();
+                    String bidAmount = in.readUTF();
+                    String item = in.readUTF();
+                    sendData.sendData(channel, outBidderName, outBiddedName, bidAmount, item);
                 }
             } catch (IOException ioException) {
                 ioException.printStackTrace();

@@ -62,8 +62,8 @@
             <groupId>me.qKing12.auctionmaster</groupId>
             <artifactId>auctionmaster</artifactId>
             <scope>system</scope>
-            <version>3.1</version>
-            <systemPath>D:/Archivos Minecraft/SERVIDORES/PROYECTOS/UnBloque/Survival/Plugins/AuctionMaster-3.1.jar</systemPath>
+            <version>3.2</version>
+            <systemPath>D:/Archivos Minecraft/SERVIDORES/PROYECTOS/UnBloque/AuctionMaster-3.2.jar</systemPath>
         </dependency>
     </dependencies>
 </project>
